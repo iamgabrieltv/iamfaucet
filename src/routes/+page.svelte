@@ -5,22 +5,26 @@
 	let respStatus: number | undefined = $state();
 	let success: boolean | undefined = $state();
 
+	const regex = /^(ban_[A-Za-z0-9]+|[A-Za-z0-9]+\.(?:ban|jtv|mictest))$/;
+
 	async function submit() {
-		hidden = true;
-		fetch(`http://localhost:3000/?address=${address}`)
-			.then((response) => {
-				console.log(response);
-				if (!response.ok) success = false;
-				else success = true;
-				respStatus = response.status;
-				return response.text();
-			})
-			.then((dataResp) => {
-				data = dataResp;
-			})
-			.catch((error) => {
-				console.error('Error:', error);
-			});
+		if (regex.test(address)) {
+			hidden = true;
+			fetch(`http://192.168.178.133:3000/?address=${address}`)
+				.then((response) => {
+					console.log(response);
+					if (!response.ok) success = false;
+					else success = true;
+					respStatus = response.status;
+					return response.text();
+				})
+				.then((dataResp) => {
+					data = dataResp;
+				})
+				.catch((error) => {
+					console.error('Error:', error);
+				});
+		}
 	}
 </script>
 
