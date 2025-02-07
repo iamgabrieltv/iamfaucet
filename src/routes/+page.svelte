@@ -10,7 +10,7 @@
 	async function submit() {
 		if (regex.test(address)) {
 			hidden = true;
-			fetch(`http://192.168.178.133:3000/?address=${address}`)
+			fetch(`https://api.faucet.iamgabriel.dev:3000/?address=${address}`)
 				.then((response) => {
 					console.log(response);
 					if (!response.ok) success = false;
