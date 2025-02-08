@@ -55,3 +55,19 @@
 		Error. It seems that you already claimed today. The list resets at 12:00 AM Europe/Berlin. Code: {respStatus}
 	</p>
 {/if}
+
+<div class="h-fit w-full justify-center gap-8 md:flex">
+	<div>
+		<p class="text-xl font-bold">Donate to me</p>
+		<p class="text-wrap break-all">
+			ban_3j95e6bkhp8zyg8pfthnykcqywq7w8edu5d9xa4gbr38ggxwawip39ibx7hr
+		</p>
+		<p>iamgabrieltv.ban</p>
+	</div>
+	<div class="my-8 md:my-0">
+		<p class="text-xl font-bold">Donate to the faucet</p>
+		<p class="text-wrap break-all">
+			ban_3iuhae1nq4e1k4r59h4h3p16x5m5c7czmuetm81xmkjeqensxyk3irocz9yy
+		</p>
+	</div>
+</div>
