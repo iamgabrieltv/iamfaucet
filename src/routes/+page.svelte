@@ -10,7 +10,7 @@
 	async function submit() {
 		if (regex.test(address)) {
 			hidden = true;
-			fetch(`https://faucetapi.iamgabriel.dev:3000/?address=${address}`)
+			fetch(`https://iamgabriel.duckdns.org:3000/?address=${address}`)
 				.then((response) => {
 					console.log(response);
 					if (!response.ok) success = false;
