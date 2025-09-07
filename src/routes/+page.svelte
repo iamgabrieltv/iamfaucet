@@ -10,7 +10,7 @@
 	async function submit() {
 		if (regex.test(address)) {
 			hidden = true;
-			fetch(`https://dyndns.iamgabriel.dev:3000/?address=${address}`)
+			fetch(`https://iamfaucetapi.iamgabriel.dev/?address=${address}`)
 				.then((response) => {
 					console.log(response);
 					if (!response.ok) success = false;
