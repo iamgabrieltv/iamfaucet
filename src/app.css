@@ -2,10 +2,9 @@
 
 html {
 	color: white;
+	@apply bg-slate-900;
 }
 
-@layer components {
-	html {
-		@apply bg-slate-900;
-	}
+.message {
+	@apply text-2xl text-pretty;
 }

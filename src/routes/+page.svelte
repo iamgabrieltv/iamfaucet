@@ -50,36 +50,41 @@
 	</form>
 {/if}
 
-{#if hidden && success === undefined}
-	<Spinner />
-{/if}
+<div class="my-4 flex flex-col items-center text-center break-all">
+	{#if hidden && success === undefined}
+		<Spinner />
+	{:else}
+		{#if success}
+			<h2 class="text-4xl">Success!</h2>
+			<p class="message">
+				Hash: <a class="underline" href="https://creeper.banano.cc/hash/{data}">{data}</a>
+			</p>
+		{:else if success !== undefined}
+			<h2 class="text-4xl">Error!</h2>
+		{/if}
 
-{#if timeoutError}
-	<p class="text-4xl">
-		Error. The request timed out. If the problem persists, contact @iamgabrieltv on Discord.
-	</p>
-{/if}
+		{#if timeoutError}
+			<p class="message">
+				The request timed out. If the problem persists, contact @iamgabrieltv on Discord.
+			</p>
+		{/if}
 
-{#if success}
-	<p class="text-4xl">
-		Success! Hash: <a class="underline" href="https://creeper.banano.cc/hash/{data}">{data}</a>
-	</p>
-{/if}
+		{#if (!success && success !== undefined && respStatus === 400) || respStatus === 500}
+			<p class="message">
+				Check if the address is correct. If the problem persists, contact @iamgabrieltv on Discord.
+				Code: {respStatus}
+			</p>
+		{/if}
 
-{#if (!success && success !== undefined && respStatus === 400) || respStatus === 500}
-	<p class="text-4xl">
-		Error. Check if the address is correct. If the problem persists, contact @iamgabrieltv on
-		Discord. Code: {respStatus}
-	</p>
-{/if}
+		{#if !success && success !== undefined && respStatus === 403}
+			<p class="message">
+				It seems that you already claimed today. The list resets at 12:00 AM Europe/Berlin. Code: {respStatus}
+			</p>
+		{/if}
+	{/if}
+</div>
 
-{#if !success && success !== undefined && respStatus === 403}
-	<p class="text-4xl">
-		Error. It seems that you already claimed today. The list resets at 12:00 AM Europe/Berlin. Code: {respStatus}
-	</p>
-{/if}
-
-<div class="h-fit w-full justify-center gap-8 md:flex">
+<div class="h-fit w-full justify-center gap-8 py-4 md:flex">
 	<div>
 		<p class="text-xl font-bold">Donate to me</p>
 		<p class="text-wrap break-all">
