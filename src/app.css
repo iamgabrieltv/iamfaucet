@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+html {
+	color: white;
+}
+
+@layer components {
+	html {
+		@apply bg-slate-900;
+	}
+}
